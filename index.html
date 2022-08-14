@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meme Generator</title>
+    <link rel="stylesheet" href="css/main.css">
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
+</head>
+
+<body onload="init()">
+    <header>
+        <nav class="navbar">
+            <div class="navbar-container container">
+                <input type="checkbox">
+                <div class="hamburger-lines">
+                    <span class="line line1"></span>
+                    <span class="line line2"></span>
+                    <span class="line line3"></span>
+                </div>
+                <ul class="menu-items">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#gallery" onclick="onClickGalleryButton()">Gallery</a></li>
+                    <li><a href="#contact"></a></li>
+                    <span><img id="icon" onclick="darkMode(this)" src="img/icon-moon.svg"></span>
+                </ul>
+                <h1 class="logo">Meme Generator</h1>
+                <div>
+                    <div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- serach bar -->
+    <div>
+        <input class="search-box" id="search-input" onkeyup="searchMeme()" type="text" placeholder="Search a meme..." />
+    </div>
+
+    <div class="main-content">
+        <div class="gallery-container"></div>
+    </div>
+    <div class="editor-container">
+        <div class="canvas-container">
+            <canvas id="my-canvas" height="550" width="550" onclick="draw(event)"></canvas>
+        </div>
+        <div class="the-editor">
+            <div>
+                <label for="name"></label>
+                <input class="user-text" type="text" id="name" name="name">
+                <br>
+                <div>
+                    <button class="blue-button" onclick="selectTextLine('up')"><i class="fa fa-arrow-up"></i></button>
+                    <button class="blue-button" onclick="selectTextLine('down')"><i
+                            class="fa fa-arrow-down"></i></button>
+                    <button class="red-button" onclick="onDeleteLine()"><i class="fa fa-trash"></i></button>
+                    <button class="plus-button" onclick="onTextInput()"><i class="fa fa-plus"></i></button>
+                </div>
+                <button><input type="color" oninput="onColorSelected(this.value)"><i
+                        class="fa fa-paint-brush"></i></button>
+                <button onclick="clearCanvas()">Clear</button>
+                <br>
+                <button onclick="onIncreaseFontSize()"><i class="fa fa-font"></i>+</button>
+                <button onclick="onDecreaseFontSize()"><i class="fa fa-font"></i>-</button>
+                <button onclick="onAlignLeft()"><i class="fa fa-align-left"></i></button>
+                <button onclick="onAlignCenter()"><i class="fa fa-align-center"></i></button>
+                <button onclick="onAlignRight()"><i class="fa fa-align-right"></i></button>
+                <br>
+                <button class="download-button"><i class="fa fa-download"></i><a href="#" onclick="downloadCanvas(this)"
+                        download="cool-canvas" class="download-href"></a>Download</button>
+                <button class="publish-button"><i class="fa fa-share-alt"></i> Publish</button>
+            </div>
+        </div>
+
+    </div>
+    <script src="js/services/utils.service.js"></script>
+    <script src="js/services/storage.service.js"></script>
+    <script src="js/services/gallery.controller.js"></script>
+    <script src="js/services/meme.service.js"></script>
+    <script src="js/services/meme.controller.js"></script>
+    <script src="js/services/canvas.contoller.js"></script>
+</body>
+
+</html>
