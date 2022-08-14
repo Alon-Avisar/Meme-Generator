@@ -8,8 +8,8 @@ var gFillColor = 'blue'
 function renderCanvas() {
     gElCanvas = document.querySelector('#my-canvas');
     gCtx = gElCanvas.getContext('2d');
-    drawImg(getMeme().src)
     renderCanvasElements()
+    // drawImg(getMeme().src)
 }
 
 function renderCanvasElements() {
@@ -18,6 +18,10 @@ function renderCanvasElements() {
     gMeme.lines.map((line) => {
         drawText(line)
     })
+}
+
+function clearCanvas() {
+    gCtx.clearRect(0, 0, gElCanvas.width, gElCanvas.height);
 }
 
 function drawText(line) {
@@ -33,22 +37,16 @@ function drawText(line) {
     gCtx.closePath()
 }
 
-function clearCanvas() {
-    // gCtx.line.text.clear()
-    gCtx.clearRect(0, 0, gElCanvas.width, gElCanvas.height);
-
+function onDeleteRow(){
+    gMeme.lines[gMeme.selectedLineIdx]
+    gMeme.lines.splice(gMeme.selectedLineIdx,1)
+    renderCanvasElements()
 }
 
 function drawImg(imgSrc) {
     const img = new Image();
     img.src = imgSrc;
     gCtx.drawImage(img, 0, 0, gElCanvas.width, gElCanvas.height);
-}
-
-function resizeCanvas() {
-    var elContainer = document.querySelector('.canvas-container');
-    gElCanvas.width = elContainer.offsetWidth
-    gElCanvas.height = elContainer.offsetHeight
 }
 
 function setShape(shape) {
@@ -70,10 +68,5 @@ function downloadCanvas(elLink) {
     elLink.href = data;
     elLink.download = 'my-canvas';
 }
-
-function colorSelected(color) {
-    gFillColor = color
-}
-
 
 

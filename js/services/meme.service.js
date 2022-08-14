@@ -1,11 +1,11 @@
 'use strict';
 
-let gMeme = {
+let  gMeme = {
     // i can choose a image by the id and to show it on the canvas
     selectedImgId: 1,
     // the choosen line from all the lines array - > gMeme.lines[0].txt / gMeme.lines[0].size /gMeme.lines[0].align /gMeme.lines[0].color
     // and in the end the user can change the txt , the size , the align and the color!!
-    selectedLineIdx: -1,
+    selectedLineIdx:0,
     lines: []
 }
 
@@ -35,7 +35,17 @@ function setLineTxt() {
     renderCanvasElements()
 }
 
-function setImg() {
-    onImgSelect()
+function selectTextLine(operation) {
+    if (operation === 'up') {
+        gMeme.selectedLineIdx === gMeme.lines.length - 1 ? gMeme.selectedLineIdx = 0 : gMeme.selectedLineIdx++; 
+    } else if (operation === 'down') {
+        gMeme.selectedLineIdx === 0 ? gMeme.lines.length - 1 : gMeme.selectedLineIdx--; 
+    }  
+    gMeme.lines.forEach(line => {
+        line.strokeColor = 'black'
+    });
+    gMeme.lines[gMeme.selectedLineIdx].strokeColor = 'red';
+    renderCanvasElements()
 }
+
 

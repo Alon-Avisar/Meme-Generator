@@ -1,0 +1,42 @@
+/* canvas */
+
+canvas {
+    border: solid black 1px;
+    display: block;
+    /* outline: 1px solid black; */
+    background-color: #fff;
+}
+
+.user-options {
+    text-align: center;
+}
+
+.save {
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+}
+
+#my-canvas {
+    display: none;
+}
+
+#icon {
+    cursor: pointer;
+}
+
+input[type="color"] {
+	-webkit-appearance: none;
+    position: absolute;
+	border: none;
+    opacity: 0;
+	width: 32px;
+	height: 32px;
+}
+input[type="color"]::-webkit-color-swatch-wrapper {
+	padding: 0;
+    opacity: 0;
+}
+input[type="color"]::-webkit-color-swatch {
+	border: none;
+    opacity: 0;
+}

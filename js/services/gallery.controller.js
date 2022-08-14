@@ -51,7 +51,7 @@ function renderGallery() {
 // get image by id
 function onImgSelect(id){
     gMeme.selectedImgId = id
-    gMeme.selectedLineIdx = -1
+    gMeme.selectedLineIdx = 0
     renderCanvas()
 }
 
@@ -67,10 +67,8 @@ function onClickMeme(id){
     canvas.style.display = "block"
     var elgalleryBtn = document.querySelector('.gallery-btn')
     elgalleryBtn.style.textDecoration = "none"
+    elgalleryBtn.classList.remove('selected') 
 }
-
-
-
 
 function onClickGalleryButton(){
     var elEditor = document.querySelector('.the-editor')
@@ -82,6 +80,7 @@ function onClickGalleryButton(){
     var canvas = document.getElementById('my-canvas');
     canvas.style.display = "none"
     var elgalleryBtn = document.querySelector('.gallery-btn')
-    elgalleryBtn.style.textDecoration = "underline"
+    elgalleryBtn.style.textDecoration = "none"
+    elgalleryBtn.classList.add('selected') 
 }
 

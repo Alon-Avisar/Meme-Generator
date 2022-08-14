@@ -1,6 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
-@import 'css/mq.css';
-@import 'css/components.css';
+@import url('mq/mq.css');
+@import url('components.css');
+
 
 
 *,
@@ -12,7 +13,7 @@
 }
 
 body {
-    background-color: rgb(255, 243, 243);
+    background-color: rgb(250, 250, 250);
     font-family: "Poppins", sans-serif;
     margin: 0;
     padding: 50px;
@@ -46,7 +47,11 @@ body {
     justify-content: space-between;
     height: 64px;
     align-items: center;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: flex-end;
 }
+
 
 .menu-items {
     order: 2;
@@ -73,6 +78,12 @@ body {
     color: #117964;
     transition: color 0.3s ease-in-out;
 }
+.menu-items a.selected {
+    background-color: rgb(241, 241, 241);
+    padding: 10px;
+    border-radius: 40px;
+    color: #129db0;
+}
 
 .logo {
     color: #ffffff;
@@ -82,15 +93,6 @@ body {
     text-transform: uppercase;
     font-size: 1.5rem;
     margin-bottom: 0.5rem;
-}
-
-.gallery-btn{
-    text-decoration-line: underline;
-    /* border: 3px solid #ffffff;
-    border-radius: 40px;
-    padding: 5px;
-    color: #1aa4a4;
-    background-color: white; */
 }
 
 .dark-theme {
@@ -428,47 +430,4 @@ button {
         font-size: 1.8rem;
         font-weight: 500;
     }
-}
-
-/* canvas */
-
-canvas {
-    border: solid black 1px;
-    display: block;
-    /* outline: 1px solid black; */
-    background-color: #fff;
-}
-
-.user-options {
-    text-align: center;
-}
-
-.save {
-    color: rgb(0, 0, 0);
-    text-decoration: none;
-}
-
-#my-canvas {
-    display: none;
-}
-
-#icon {
-    cursor: pointer;
-}
-
-input[type="color"] {
-	-webkit-appearance: none;
-    position: absolute;
-	border: none;
-    opacity: 0;
-	width: 32px;
-	height: 32px;
-}
-input[type="color"]::-webkit-color-swatch-wrapper {
-	padding: 0;
-    opacity: 0;
-}
-input[type="color"]::-webkit-color-swatch {
-	border: none;
-    opacity: 0;
 }
