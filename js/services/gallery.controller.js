@@ -63,9 +63,14 @@ function onClickMeme(id){
     elClickedImg.style.display = "none"
     var elEditor = document.querySelector('.the-editor')
     elEditor.style.display = "flex"
-    var canvas = document.getElementById('my-canvas');
+    var canvas = document.getElementById('my-canvas')
     canvas.style.display = "block"
+    var elgalleryBtn = document.querySelector('.gallery-btn')
+    elgalleryBtn.style.textDecoration = "none"
 }
+
+
+
 
 function onClickGalleryButton(){
     var elEditor = document.querySelector('.the-editor')
@@ -76,5 +81,7 @@ function onClickGalleryButton(){
     elSerachBar.style.display = "block"
     var canvas = document.getElementById('my-canvas');
     canvas.style.display = "none"
+    var elgalleryBtn = document.querySelector('.gallery-btn')
+    elgalleryBtn.style.textDecoration = "underline"
 }
 
